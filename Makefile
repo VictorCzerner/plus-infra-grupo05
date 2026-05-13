@@ -33,8 +33,8 @@ tf-apply:
 setup: .env tf-init
 	@echo "[make] Iniciando setup completo..."
 	$(COMPOSE) up -d ministack
-	@$(MAKE) wait-ministack
-	@$(MAKE) tf-apply
+	@"$(MAKE)" wait-ministack
+	@"$(MAKE)" tf-apply
 	@echo "[make] Subindo todos os serviços..."
 	$(COMPOSE) up -d
 	@echo "[make] Setup concluído."
@@ -56,7 +56,7 @@ reset:
 	@echo "[make] Derrubando todos os serviços e removendo volumes..."
 	$(COMPOSE) down -v --remove-orphans
 	@echo "[make] Reiniciando setup..."
-	@$(MAKE) setup
+	@"$(MAKE)" setup
 
 # Garante que o .env exista antes de qualquer comando que precise dele
 .env:
